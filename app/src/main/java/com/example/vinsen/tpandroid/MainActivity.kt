@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import com.example.vinsen.tpandroid.User.User
+import com.example.vinsen.tpandroid.adapter.UserAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +15,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        val users = ArrayList<User>()
+        users.add(User(1,"Vinsen",21,"Pleurer"))
         btnOk.setOnClickListener {
             var editText = findViewById(R.id.txtNom) as EditText
             val nom = editText.text.toString()
@@ -22,15 +25,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val adapter = UserAdapter(users)
+        //recyclerUser.adapter = adapter
     }
 
-
-
-        /*var editText = findViewById(R.id.txtNom) as EditText
-        val intent = Intent(this,DataActivity::class.java)
-        val nom = editText.text.toString()
-        intent.putExtra("Nom",nom)
-        startActivity(intent) */
 
 
 
@@ -41,9 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
