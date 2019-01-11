@@ -6,6 +6,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="10dp"
         tools:context=".MainActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -15,17 +16,25 @@
                 android:text="Votre nom : "
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:id="@+id/textView2"
-                app:layout_constraintEnd_toStartOf="@+id/editText" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtNom" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
         <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/txtNom"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
                 app:layout_constraintStart_toEndOf="@+id/textView2" app:layout_constraintEnd_toEndOf="parent"/>
     </android.support.constraint.ConstraintLayout>
 
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnOk"
+                android:text="OK"
+
+                android:layout_centerInParent="true"/>
+    </RelativeLayout>
 </LinearLayout>

@@ -1,11 +1,11 @@
 package com.example.vinsen.tpandroid
 
+import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-
+import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,13 +13,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        btnOk.setOnClickListener {
+            var editText = findViewById(R.id.txtNom) as EditText
+            val nom = editText.text.toString()
+            val intent = Intent(applicationContext,DataActivity::class.java)
+            intent.putExtra("nom",nom)
+            startActivity(intent)
         }
+
     }
+
+
+
+        /*var editText = findViewById(R.id.txtNom) as EditText
+        val intent = Intent(this,DataActivity::class.java)
+        val nom = editText.text.toString()
+        intent.putExtra("Nom",nom)
+        startActivity(intent) */
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
